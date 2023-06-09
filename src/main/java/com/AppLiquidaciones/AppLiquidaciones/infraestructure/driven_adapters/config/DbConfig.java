@@ -14,14 +14,14 @@ import io.r2dbc.postgresql.PostgresqlConnectionConfiguration;
 @EnableR2dbcRepositories
 public class DbConfig extends AbstractR2dbcConfiguration {
 
-    @Bean
-    public DbSecret secret(Environment environment) {
-        return new DbSecret(environment.getProperty("spring.datasource.username"),
-                            environment.getProperty("spring.datasource.password"),
-                            environment.getProperty("spring.datasource.host"),
-                            Integer.parseInt(environment.getProperty("spring.datasource.port")),
-                            environment.getProperty("spring.datasource.databasename"));
-    }
+//    @Bean
+//    public DbSecret secret(Environment environment) {
+//        return new DbSecret(environment.getProperty("spring.datasource.username"),
+//                            environment.getProperty("spring.datasource.password"),
+//                            environment.getProperty("spring.datasource.host"),
+//                            Integer.parseInt(environment.getProperty("spring.datasource.port")),
+//                            environment.getProperty("spring.datasource.databasename"));
+//    }
 
     @Override
     @Bean
