@@ -19,8 +19,6 @@ public class Employee {
         this.position = position;
     }
 
-
-
     public Name getName() {
         return name;
     }

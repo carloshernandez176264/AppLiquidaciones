@@ -7,7 +7,6 @@ public class EmployeeDTO {
     private Integer id;
     private Name name;
     private Identification identification;
-
     private Salary salary;
     private ContractType contractType;
     private ContractStartDate contractStartDate;
@@ -18,7 +17,7 @@ public class EmployeeDTO {
     }
 
     public static EmployeeDTO fromDomain(Employee employee) {
-        return new EmployeeDTO(employee.getName(),employee.getSalary(), employee.getContractType(), employee.getContractStartDate(), employee.getPosition());
+        return new EmployeeDTO(employee.getName(), employee.getSalary(), employee.getContractType(), employee.getContractStartDate(), employee.getPosition());
     }
 
     public EmployeeDTO(Name name, Salary salary, ContractType contractType, ContractStartDate contractStartDate, Position position) {
