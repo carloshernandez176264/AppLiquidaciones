@@ -1,14 +1,16 @@
 package com.AppLiquidaciones.AppLiquidaciones.domain.model.employee;
 
+import java.util.Date;
+
 public class ContractStartDate {
 
-    private String contractStartDate;
+    private Date contractStartDate;
 
-    public String getContractStartDate() {
+    public Date getContractStartDate() {
         return contractStartDate;
     }
 
-    public ContractStartDate(String contractStartDate) {
+    public ContractStartDate(Date contractStartDate) {
         this.contractStartDate = contractStartDate;
     }
 }

@@ -2,7 +2,7 @@ package com.AppLiquidaciones.AppLiquidaciones.infraestructure.entry_points.emplo
 
 
 import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.Employee;
-import com.AppLiquidaciones.AppLiquidaciones.domain.model.gateways.IEmployeeRepository;
+import com.AppLiquidaciones.AppLiquidaciones.domain.model.gateways.EmployeeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
 @AllArgsConstructor
 public class EmployeeHandler {
 
-    private final IEmployeeRepository employeeRepository;
+    private final EmployeeRepository employeeRepository;
 
     public Mono<ServerResponse> createEmployee(ServerRequest serverRequest) {
         return serverRequest

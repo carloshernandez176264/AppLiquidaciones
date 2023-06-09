@@ -2,13 +2,13 @@ package com.AppLiquidaciones.AppLiquidaciones.domain.model.employee;
 
 public class Identification {
 
-    private String identification;
+    private Integer identification;
 
-    public String getIdentification() {
+    public Integer getIdentification() {
         return identification;
     }
 
-    public Identification(String identification) {
+    public Identification(Integer identification) {
         this.identification = identification;
     }
 }

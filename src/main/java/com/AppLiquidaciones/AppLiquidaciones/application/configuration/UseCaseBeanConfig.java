@@ -1,6 +1,6 @@
 package com.AppLiquidaciones.AppLiquidaciones.application.configuration;
 
-import com.AppLiquidaciones.AppLiquidaciones.domain.model.gateways.IEmployeeRepository;
+import com.AppLiquidaciones.AppLiquidaciones.domain.model.gateways.EmployeeRepository;
 import com.AppLiquidaciones.AppLiquidaciones.domain.usecase.EmployeeUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,7 +9,9 @@ import org.springframework.context.annotation.Configuration;
 public class UseCaseBeanConfig {
 
     @Bean
-    public EmployeeUseCase employeeUseCase(IEmployeeRepository iemployeeRepository) {
-        return new EmployeeUseCase(iemployeeRepository);
+    public EmployeeUseCase employeeUseCase(EmployeeRepository employeeRepository) {
+
+        return new EmployeeUseCase(employeeRepository);
     }
+
 }

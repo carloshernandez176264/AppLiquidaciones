@@ -4,7 +4,7 @@ import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.Employee;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-public interface IEmployeeRepository {
+public interface EmployeeRepository {
 
     Mono<Employee> save(Employee employee);
 
