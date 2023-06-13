@@ -14,7 +14,7 @@ public class IEmployeeDBORepositoryAdapter implements EmployeeRepository {
 
     @Override
     public Mono<Employee> save(Employee employee) {
-        return null;
+        return Mono.just(employee);
     }
 
     @Override
