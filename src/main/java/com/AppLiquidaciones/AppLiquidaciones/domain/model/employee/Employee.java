@@ -1,6 +1,8 @@
 package com.AppLiquidaciones.AppLiquidaciones.domain.model.employee;
 
 
+import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.attributes.*;
+
 public class Employee {
 
 

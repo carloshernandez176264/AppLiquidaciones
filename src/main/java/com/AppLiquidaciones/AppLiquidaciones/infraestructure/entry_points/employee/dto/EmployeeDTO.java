@@ -1,31 +1,37 @@
 package com.AppLiquidaciones.AppLiquidaciones.infraestructure.entry_points.employee.dto;
 
 import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.*;
+import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.attributes.*;
+
+import java.util.Date;
 
 public class EmployeeDTO {
 
     private Integer id;
-    private Name name;
-    private Identification identification;
-    private Salary salary;
-    private ContractType contractType;
-    private ContractStartDate contractStartDate;
-    private ContractEndDate contractEndDate;
-    private Area area;
-    private Role role;
-    private Photo photo;
+    private String name;
+    private Integer identification;
+    private Integer salary;
+    private String contractType;
+    private Date contractStartDate;
+    private Date contractEndDate;
+    private String area;
+    private String role;
+    private String photo;
 
-    public Employee toDomain() {
-        return new Employee(name, identification, salary, contractType, contractStartDate, contractEndDate, area, role, photo);
+    public Employee toDomain(){
+        return new Employee(Name.builder().value(name).build(),
+                Identification.builder().value(identification).build(), Salary.builder().value(salary).build(), ContractType.builder().value(contractType).build(),
+                ContractStartDate.builder().value(contractStartDate).build(), ContractEndDate.builder().value(contractEndDate).build(),
+                Area.builder().value(area).build(), Role.builder().value(role).build(), Photo.builder().value(photo).build());
     }
 
     public static EmployeeDTO fromDomain(Employee employee) {
-        return new EmployeeDTO(employee.getName(), employee.getIdentification(), employee.getSalary(), employee.getContractType(),
-                employee.getContractStartDate(), employee.getContractEndDate(),employee.getArea(), employee.getRole(), employee.getPhoto());
+        return new EmployeeDTO(employee.getName().getValue(), employee.getIdentification().getValue(), employee.getSalary().getValue(),
+                employee.getContractType().getValue(), employee.getContractStartDate().getValue(), employee.getContractEndDate().getValue(),
+                employee.getArea().getValue(), employee.getRole().getValue(), employee.getPhoto().getValue());
     }
 
-    public EmployeeDTO(Name name, Identification identification, Salary salary, ContractType contractType,
-                       ContractStartDate contractStartDate, ContractEndDate contractEndDate,Area area, Role role, Photo photo) {
+    public EmployeeDTO(String name, Integer identification, Integer salary, String contractType, Date contractStartDate, Date contractEndDate, String area, String role, String photo) {
         this.name = name;
         this.identification = identification;
         this.salary = salary;
@@ -37,9 +43,7 @@ public class EmployeeDTO {
         this.photo = photo;
     }
 
-
-
-    public Name getName() {
+    public String getName() {
         return name;
     }
 
@@ -47,35 +51,35 @@ public class EmployeeDTO {
         return id;
     }
 
-    public Salary getSalary() {
+    public Integer getSalary() {
         return salary;
     }
 
-    public ContractType getContractType() {
+    public String getContractType() {
         return contractType;
     }
 
-    public ContractStartDate getContractStartDate() {
+    public Date getContractStartDate() {
         return contractStartDate;
     }
 
-    public Identification getIdentification() {
+    public Integer getIdentification() {
         return identification;
     }
 
-    public ContractEndDate getContractEndDate() {
+    public Date getContractEndDate() {
         return contractEndDate;
     }
 
-    public Area getArea() {
+    public String getArea() {
         return area;
     }
 
-    public Role getRole() {
+    public String getRole() {
         return role;
     }
 
-    public Photo getPhoto() {
+    public String getPhoto() {
         return photo;
     }
 }

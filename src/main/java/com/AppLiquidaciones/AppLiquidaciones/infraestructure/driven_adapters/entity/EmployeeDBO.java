@@ -2,11 +2,14 @@ package com.AppLiquidaciones.AppLiquidaciones.infraestructure.driven_adapters.en
 
 
 import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.*;
+import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.attributes.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
+
+import java.util.Date;
 
 
 @Table(name = "employees")
@@ -18,66 +21,70 @@ public class EmployeeDBO {
     @Id
     private Integer id;
     private String name;
-    private Identification identification;
-    private Salary salary;
-    private ContractType contractType;
-    private ContractStartDate contractStartDate;
-    private ContractEndDate contractEndDate;
-    private Area area;
-    private Role role;
-    private Photo photo;
+    private Integer identification;
+    private Integer salary;
+    private String contractType;
+    private Date contractStartDate;
+    private Date contractEndDate;
+    private String area;
+    private String role;
+    private String photo;
 
     public static EmployeeDBO fromDomain(Employee employee) {
+        System.out.println(employee.toString());
         return EmployeeDBO.builder()
                 .name(employee.getName().getValue())
-                .identification(employee.getIdentification())
-                .salary(employee.getSalary())
-                .contractType(employee.getContractType())
-                .contractStartDate(employee.getContractStartDate())
-                .contractEndDate(employee.getContractEndDate())
-                .area(employee.getArea())
-                .role(employee.getRole())
-                .photo(employee.getPhoto())
+                .identification(employee.getIdentification().getValue())
+                .salary(employee.getSalary().getValue())
+                .contractType(employee.getContractType().getValue())
+                .contractStartDate(employee.getContractStartDate().getValue())
+                .contractEndDate(employee.getContractEndDate().getValue())
+                .area(employee.getArea().getValue())
+                .role(employee.getRole().getValue())
+                .photo(employee.getPhoto().getValue())
                 .build();
     }
 
     public Employee toDomain() {
-        return new Employee(Name.builder().value(name).build(), identification, salary, contractType, contractStartDate, contractEndDate, area, role, photo);
+        return new Employee(Name.builder().value(name).build(), Identification.builder().value(identification).build(),
+                Salary.builder().value(salary).build(),ContractType.builder().value(contractType).build() , ContractStartDate.builder().value(contractStartDate).build(),
+                ContractEndDate.builder().value(contractEndDate).build(), Area.builder().value(area).build(), Role.builder().value(role).build(),
+                Photo.builder().value(photo).build() );
     }
 
-    public Name getName() {
+    public String getName() {
         return name;
     }
 
-    public Identification getIdentification() {
+    public Integer getIdentification() {
         return identification;
     }
 
-    public Salary getSalary() {
+    public Integer getSalary() {
         return salary;
     }
 
-    public ContractType getContractType() {
+    public String getContractType() {
         return contractType;
     }
 
-    public ContractStartDate getContractStartDate() {
+    public Date getContractStartDate() {
         return contractStartDate;
     }
 
-    public ContractEndDate getContractEndDate() {
+    public Date getContractEndDate() {
         return contractEndDate;
     }
 
-    public Area getArea() {
+    public String getArea() {
         return area;
     }
 
-    public Role getRole() {
+    public String getRole() {
         return role;
     }
 
-    public Photo getPhoto() {
+    public String getPhoto() {
         return photo;
     }
 }
