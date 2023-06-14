@@ -10,24 +10,34 @@ public class EmployeeDTO {
     private Salary salary;
     private ContractType contractType;
     private ContractStartDate contractStartDate;
-    private Position position;
+    private ContractEndDate contractEndDate;
+    private Area area;
+    private Role role;
+    private Photo photo;
 
     public Employee toDomain() {
-        return new Employee(name, identification, salary, contractType, contractStartDate, position);
+        return new Employee(name, identification, salary, contractType, contractStartDate, contractEndDate, area, role, photo);
     }
 
     public static EmployeeDTO fromDomain(Employee employee) {
-        return new EmployeeDTO(employee.getName(), employee.getSalary(), employee.getContractType(), employee.getContractStartDate(), employee.getPosition());
+        return new EmployeeDTO(employee.getName(), employee.getIdentification(), employee.getSalary(), employee.getContractType(),
+                employee.getContractStartDate(), employee.getContractEndDate(),employee.getArea(), employee.getRole(), employee.getPhoto());
     }
 
-    public EmployeeDTO(Name name, Salary salary, ContractType contractType, ContractStartDate contractStartDate, Position position) {
+    public EmployeeDTO(Name name, Identification identification, Salary salary, ContractType contractType,
+                       ContractStartDate contractStartDate, ContractEndDate contractEndDate,Area area, Role role, Photo photo) {
         this.name = name;
-        this.id = id;
+        this.identification = identification;
         this.salary = salary;
         this.contractType = contractType;
         this.contractStartDate = contractStartDate;
-        this.position = position;
+        this.contractEndDate = contractEndDate;
+        this.area = area;
+        this.role = role;
+        this.photo = photo;
     }
+
+
 
     public Name getName() {
         return name;
@@ -49,7 +59,23 @@ public class EmployeeDTO {
         return contractStartDate;
     }
 
-    public Position getPosition() {
-        return position;
+    public Identification getIdentification() {
+        return identification;
+    }
+
+    public ContractEndDate getContractEndDate() {
+        return contractEndDate;
+    }
+
+    public Area getArea() {
+        return area;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public Photo getPhoto() {
+        return photo;
     }
 }

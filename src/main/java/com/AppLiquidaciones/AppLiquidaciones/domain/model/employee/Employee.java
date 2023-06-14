@@ -1,6 +1,8 @@
 package com.AppLiquidaciones.AppLiquidaciones.domain.model.employee;
 
+
 public class Employee {
+
 
     private Integer id;
     private Name name;
@@ -8,15 +10,22 @@ public class Employee {
     private Salary salary;
     private ContractType contractType;
     private ContractStartDate contractStartDate;
-    private Position position;
+    private ContractEndDate contractEndDate;
+    private Area area;
+    private Role role;
+    private Photo photo;
 
-    public Employee(Name name, Identification identification, Salary salary, ContractType contractType, ContractStartDate contractStartDate, Position position) {
+    public Employee(Name name, Identification identification, Salary salary, ContractType contractType,
+                    ContractStartDate contractStartDate, ContractEndDate contractEndDate,Area area, Role role, Photo photo) {
         this.name = name;
         this.identification = identification;
         this.salary = salary;
         this.contractType = contractType;
         this.contractStartDate = contractStartDate;
-        this.position = position;
+        this.contractEndDate = contractEndDate;
+        this.area = area;
+        this.role = role;
+        this.photo = photo;
     }
 
     public Name getName() {
@@ -39,7 +48,17 @@ public class Employee {
         return contractStartDate;
     }
 
-    public Position getPosition() {
-        return position;
+    public ContractEndDate getContractEndDate() {
+        return contractEndDate;
+    }
+
+    public Area getArea() {
+        return area;
+    }
+    public Role getRole() {
+        return role;
+    }
+    public Photo getPhoto() {
+        return photo;
     }
 }

@@ -11,29 +11,35 @@ import reactor.core.publisher.Mono;
 @AllArgsConstructor
 public class IEmployeeDBORepositoryAdapter implements EmployeeRepository {
 
+    private final IEmployeeDBORepository repository;
 
     @Override
     public Mono<Employee> save(Employee employee) {
-        return Mono.just(employee);
+        return repository.save(employee);
     }
+
 
     @Override
     public Mono<Employee> findById(Integer id) {
-        return null;
+
+        return repository.findById(id);
     }
 
     @Override
     public Mono<Employee> update(Employee employee) {
-        return null;
+
+        return repository.save(employee);
     }
 
     @Override
     public Mono<Employee> delete(Integer id) {
-        return null;
+        return repository.findById(id)
+                .flatMap(employee -> repository.delete(employee)
+                        .then(Mono.just(employee)));
     }
 
     @Override
     public Flux<Employee> findAll() {
-        return null;
+        return repository.findAll();
     }
 }

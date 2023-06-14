@@ -1,14 +1,13 @@
 package com.AppLiquidaciones.AppLiquidaciones.domain.model.employee;
 
+import lombok.Builder;
+
+@Builder
 public class Name {
 
-    private String name;
+    private String value;
 
-    public String getName() {
-        return name;
-    }
-
-    public Name(String name) {
-        this.name = name;
+    public String getValue() {
+        return value;
     }
 }

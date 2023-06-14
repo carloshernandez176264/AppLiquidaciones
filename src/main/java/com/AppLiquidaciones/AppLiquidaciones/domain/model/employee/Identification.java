@@ -1,14 +1,15 @@
 package com.AppLiquidaciones.AppLiquidaciones.domain.model.employee;
 
+import lombok.Builder;
+
+@Builder
 public class Identification {
 
-    private Integer identification;
+    private Integer value;
 
-    public Integer getIdentification() {
-        return identification;
+    public Integer getValue() {
+        return value;
     }
 
-    public Identification(Integer identification) {
-        this.identification = identification;
-    }
+
 }

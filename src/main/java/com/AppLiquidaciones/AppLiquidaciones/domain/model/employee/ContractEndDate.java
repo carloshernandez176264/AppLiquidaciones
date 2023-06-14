@@ -2,12 +2,14 @@ package com.AppLiquidaciones.AppLiquidaciones.domain.model.employee;
 
 import lombok.Builder;
 
+import java.util.Date;
+
 @Builder
-public class ContractType {
+public class ContractEndDate {
 
-    private String value;
+    private Date value;
 
-    public String getValue() {
+    public Date getValue() {
         return value;
     }
 }

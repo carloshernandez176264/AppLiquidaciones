@@ -1,14 +1,13 @@
 package com.AppLiquidaciones.AppLiquidaciones.domain.model.employee;
 
+import lombok.Builder;
+
+@Builder
 public class Salary {
 
-    private Integer salary;
+    private Integer value;
 
-    public Integer getSalary() {
-        return salary;
-    }
-
-    public Salary(Integer salary) {
-        this.salary = salary;
+    public Salary(Integer value) {
+        this.value = value;
     }
 }

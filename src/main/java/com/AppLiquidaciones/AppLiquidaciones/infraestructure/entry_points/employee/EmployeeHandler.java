@@ -25,7 +25,7 @@ public class EmployeeHandler {
                         .bodyValue(savedEmployee))
                 .onErrorResume(exception -> ServerResponse
                         .unprocessableEntity()
-                        .bodyValue("Error al crear empleado."));
+                        .bodyValue(exception.getMessage()));
     }
 
     public Mono<ServerResponse> queryEmployees(ServerRequest serverRequest) {

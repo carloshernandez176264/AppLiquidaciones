@@ -3,7 +3,7 @@ package com.AppLiquidaciones.AppLiquidaciones.domain.model.employee;
 import lombok.Builder;
 
 @Builder
-public class ContractType {
+public class Area {
 
     private String value;
 
