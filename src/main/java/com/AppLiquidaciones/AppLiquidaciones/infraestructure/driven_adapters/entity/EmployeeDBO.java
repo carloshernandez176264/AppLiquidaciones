@@ -8,9 +8,8 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
-
 import java.time.LocalDate;
-import java.util.Date;
+
 
 
 @Table(name = "employees")
