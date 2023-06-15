@@ -1,8 +1,6 @@
 package com.AppLiquidaciones.AppLiquidaciones.infraestructure.entry_points.employee;
 
 
-import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.Employee;
-import com.AppLiquidaciones.AppLiquidaciones.domain.model.gateways.EmployeeRepository;
 import com.AppLiquidaciones.AppLiquidaciones.domain.usecase.EmployeeUseCase;
 import com.AppLiquidaciones.AppLiquidaciones.infraestructure.entry_points.employee.dto.EmployeeDTO;
 import lombok.AllArgsConstructor;
@@ -21,68 +19,65 @@ public class EmployeeHandler {
     public Mono<ServerResponse> createEmployee(ServerRequest serverRequest) {
         return serverRequest
                 .bodyToMono(EmployeeDTO.class)
-                .flatMap(employeeDTO -> {
-                    Employee employee = employeeDTO.toDomain();
-                    employeeUseCase.createEmployee(EmployeeDTO.fromDomain(employee));
-                    return ServerResponse
-                            .status(HttpStatus.CREATED)
-                            .bodyValue(employeeDTO);
-                });
+                .flatMap(employeeDTO -> employeeUseCase
+                        .createEmployee(employeeDTO)
+                        .flatMap(savedEmployee -> ServerResponse
+                                .status(HttpStatus.CREATED)
+                                .bodyValue(savedEmployee)))
+                .onErrorResume(exception -> ServerResponse
+                        .badRequest()
+                        .bodyValue(exception.getMessage()));
     }
 
-//    public Mono<ServerResponse> queryEmployees(ServerRequest serverRequest) {
-//        return employeeRepository
-//                .findAll()
-//                .collectList()
-//                .flatMap(employees -> {
-//                    if (!employees.isEmpty()) {
-//                        return ServerResponse
-//                                .ok()
-//                                .bodyValue(employees);
-//                    } else {
-//                        return ServerResponse
-//                                .noContent()
-//                                .build();
-//                    }
-//                })
-//                .switchIfEmpty(ServerResponse
-//                                        .noContent()
-//                                        .build());
-//    }
-//
-//    public Mono<ServerResponse> queryEmployeeById(ServerRequest serverRequest) {
-//        return
-//                .findById(Integer.valueOf(serverRequest.pathVariable("id")))
-//                .flatMap(employee -> ServerResponse
-//                        .ok()
-//                        .bodyValue(employee))
-//                .switchIfEmpty(ServerResponse
-//                                       .status(HttpStatus.NO_CONTENT)
-//                                       .bodyValue("Empleado no encontrado"));
-//    }
-//
-//    public Mono<ServerResponse> updateEmployee(ServerRequest serverRequest) {
-//        return serverRequest
-//                .bodyToMono(Employee.class)
-//                .flatMap(employeeRepository::update)
-//                .flatMap(savedEmployee -> ServerResponse
-//                        .ok()
-//                        .bodyValue(savedEmployee))
-//                .onErrorResume(exception -> ServerResponse
-//                        .unprocessableEntity()
-//                        .bodyValue("Error al actualizar empleado."));
-//    }
-//
-//    public Mono<ServerResponse> deleteEmployee(ServerRequest serverRequest) {
-//        return employeeRepository
-//                .delete(Integer.valueOf(serverRequest.pathVariable("id")))
-//                .flatMap(deletedEmployee -> ServerResponse
-//                        .ok()
-//                        .bodyValue(deletedEmployee))
-//                .switchIfEmpty(ServerResponse
-//                                       .status(HttpStatus.NO_CONTENT)
-//                                       .bodyValue("Empleado no encontrado"));
-//    }
+    public Mono<ServerResponse> getEmployees(ServerRequest serverRequest) {
+        return employeeUseCase
+                .getEmployees()
+                .collectList()
+                .flatMap(employees -> ServerResponse
+                        .ok()
+                        .bodyValue(employees))
+                .switchIfEmpty(ServerResponse
+                                       .status(HttpStatus.NO_CONTENT)
+                                       .bodyValue("No hay empleados registrados"));
+    }
+
+    public Mono<ServerResponse> getEmployeeById(ServerRequest serverRequest) {
+        Integer id = Integer.valueOf(serverRequest.pathVariable("id"));
+        return employeeUseCase
+                .getEmployeeById(id)
+                .flatMap(employee -> ServerResponse
+                        .ok()
+                        .bodyValue(employee))
+                .switchIfEmpty(ServerResponse
+                                       .notFound()
+                                       .build());
+    }
+
+    public Mono<ServerResponse> updateEmployee(ServerRequest serverRequest) {
+        return serverRequest
+                .bodyToMono(EmployeeDTO.class)
+                .flatMap(employeeDTO -> employeeUseCase
+                        .updateEmployee(employeeDTO)
+                        .flatMap(savedEmployee -> ServerResponse
+                                .status(HttpStatus.CREATED)
+                                .bodyValue(savedEmployee)))
+                .onErrorResume(exception -> ServerResponse
+                        .badRequest()
+                        .bodyValue(exception.getMessage()));
+    }
+
+
+    public Mono<ServerResponse> deleteEmployee(ServerRequest serverRequest) {
+        Integer id = Integer.valueOf(serverRequest.pathVariable("id"));
+        return employeeUseCase
+                .deleteEmployee(id)
+                .flatMap(employee -> ServerResponse
+                        .ok()
+                        .bodyValue(employee))
+                .switchIfEmpty(ServerResponse
+                                       .notFound()
+                                       .build());}
+
 
 
 

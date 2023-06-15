@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -23,9 +24,9 @@ public class EmployeeDBO {
     private String name;
     private Integer identification;
     private Integer salary;
-    private String contractType;
-    private Date contractStartDate;
-    private Date contractEndDate;
+    private String contracttype;
+    private LocalDate contractStartDate;
+    private LocalDate contractEndDate;
     private String area;
     private String role;
     private String photo;
@@ -36,7 +37,7 @@ public class EmployeeDBO {
                 .name(employee.getName().getValue())
                 .identification(employee.getIdentification().getValue())
                 .salary(employee.getSalary().getValue())
-                .contractType(employee.getContractType().getValue())
+                .contracttype(employee.getContracttype().getValue())
                 .contractStartDate(employee.getContractStartDate().getValue())
                 .contractEndDate(employee.getContractEndDate().getValue())
                 .area(employee.getArea().getValue())
@@ -47,7 +48,7 @@ public class EmployeeDBO {
 
     public Employee toDomain() {
         return new Employee(Name.builder().value(name).build(), Identification.builder().value(identification).build(),
-                Salary.builder().value(salary).build(),ContractType.builder().value(contractType).build() , ContractStartDate.builder().value(contractStartDate).build(),
+                Salary.builder().value(salary).build(),ContractType.builder().value(contracttype).build() , ContractStartDate.builder().value(contractStartDate).build(),
                 ContractEndDate.builder().value(contractEndDate).build(), Area.builder().value(area).build(), Role.builder().value(role).build(),
                 Photo.builder().value(photo).build() );
     }
@@ -64,15 +65,15 @@ public class EmployeeDBO {
         return salary;
     }
 
-    public String getContractType() {
-        return contractType;
+    public String getContracttype() {
+        return contracttype;
     }
 
-    public Date getContractStartDate() {
+    public LocalDate getContractStartDate() {
         return contractStartDate;
     }
 
-    public Date getContractEndDate() {
+    public LocalDate getContractEndDate() {
         return contractEndDate;
     }
 

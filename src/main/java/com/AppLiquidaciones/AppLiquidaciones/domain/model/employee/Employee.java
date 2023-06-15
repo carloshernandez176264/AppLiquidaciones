@@ -2,27 +2,28 @@ package com.AppLiquidaciones.AppLiquidaciones.domain.model.employee;
 
 
 import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.attributes.*;
+import org.springframework.data.annotation.Id;
 
 public class Employee {
 
-
+    @Id
     private Integer id;
     private Name name;
     private Identification identification;
     private Salary salary;
-    private ContractType contractType;
+    private ContractType contracttype;
     private ContractStartDate contractStartDate;
     private ContractEndDate contractEndDate;
     private Area area;
     private Role role;
     private Photo photo;
 
-    public Employee(Name name, Identification identification, Salary salary, ContractType contractType,
+    public Employee(Name name, Identification identification, Salary salary, ContractType contracttype,
                     ContractStartDate contractStartDate, ContractEndDate contractEndDate,Area area, Role role, Photo photo) {
         this.name = name;
         this.identification = identification;
         this.salary = salary;
-        this.contractType = contractType;
+        this.contracttype = contracttype;
         this.contractStartDate = contractStartDate;
         this.contractEndDate = contractEndDate;
         this.area = area;
@@ -42,8 +43,8 @@ public class Employee {
         return salary;
     }
 
-    public ContractType getContractType() {
-        return contractType;
+    public ContractType getContracttype() {
+        return contracttype;
     }
 
     public ContractStartDate getContractStartDate() {

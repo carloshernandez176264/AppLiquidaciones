@@ -4,29 +4,35 @@ import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.Employee;
 import com.AppLiquidaciones.AppLiquidaciones.domain.model.gateways.EmployeeRepository;
 import com.AppLiquidaciones.AppLiquidaciones.infraestructure.entry_points.employee.dto.EmployeeDTO;
 import lombok.AllArgsConstructor;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @AllArgsConstructor
 public class EmployeeUseCase {
 
     private final EmployeeRepository employeeRepository;
 
-    public EmployeeDTO createEmployee(EmployeeDTO employeeDTO) {
+    public Mono<Employee> createEmployee(EmployeeDTO employeeDTO) {
         Employee employee = employeeDTO.toDomain();
-        employeeRepository.save(employee);
-        return employeeDTO;
+        return employeeRepository.save(employee);
     }
 
-    public void updateEmployee(EmployeeDTO employeeDTO) {
-        Employee employee = employeeDTO.toDomain();
-        employeeRepository.update(employee);
+    public Flux<Employee> getEmployees() {
+        return employeeRepository.findAll();
     }
 
-    public void getAllEmployee(EmployeeDTO employeeDTO) {
-        Employee employee = employeeDTO.toDomain();
-        employeeRepository.findAll();
+    public Mono<Employee> getEmployeeById(Integer id) {
+        return employeeRepository.findById(id);
     }
 
+    public Mono<Employee> updateEmployee(EmployeeDTO employeeDTO) {
+        Employee employee = employeeDTO.toDomain();
+        return employeeRepository.update(employee);
+    }
 
+    public Mono<Employee> deleteEmployee(Integer id) {
+        return employeeRepository.delete(id);
+    }
 
 
 }

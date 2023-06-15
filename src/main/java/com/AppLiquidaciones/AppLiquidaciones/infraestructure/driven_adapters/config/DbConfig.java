@@ -26,12 +26,11 @@ public class DbConfig extends AbstractR2dbcConfiguration {
     @Override
     @Bean
     public ConnectionFactory connectionFactory() {
-        System.out.println(Configuration.class.getCanonicalName());
         return new PostgresqlConnectionFactory(PostgresqlConnectionConfiguration
                 .builder()
                 .host("localhost")
                 .port(5432)
-                .database("liquidacionesDB")
+                .database("AppLiqui")
                 .username("postgres")
                 .password("Edilma5422*")
                 .build());

@@ -16,8 +16,7 @@ public class IEmployeeDBORepositoryAdapter implements EmployeeRepository {
 
     @Override
     public Mono<Employee> save(Employee employee) {
-        EmployeeDBO employeeDBO = EmployeeDBO.fromDomain(employee);
-        return repository.save(employeeDBO).map(EmployeeDBO::toDomain);
+        return repository.save(EmployeeDBO.fromDomain(employee)).map(EmployeeDBO::toDomain);
 
     }
 

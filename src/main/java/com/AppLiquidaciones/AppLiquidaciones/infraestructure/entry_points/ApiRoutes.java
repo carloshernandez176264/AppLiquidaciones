@@ -14,19 +14,19 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 @Configuration
 public class ApiRoutes {
 
-    @Value("{PATH_BASE}")
+    @Value("${PATH_BASE}")
     private String pathBase;
 
     @Bean
     public RouterFunction<ServerResponse> employeeFunctionalEndpoints(EmployeeHandler handler) {
         String param = "/{id}";
         return RouterFunctions
-                .route(POST(pathBase).and(accept(MediaType.APPLICATION_JSON)), handler::createEmployee);
-//                .andRoute(GET(pathBase).and(accept(MediaType.APPLICATION_JSON)), handler::queryEmployees)
-//                .andRoute(GET(pathBase.concat(param)).and(accept(MediaType.APPLICATION_JSON)), handler::queryEmployeeById)
-//                .andRoute(PUT(pathBase.concat(param)).and(accept(MediaType.APPLICATION_JSON)), handler::updateEmployee)
-//                .andRoute(DELETE(pathBase.concat(param)).and(accept(MediaType.APPLICATION_JSON)),
-//                          handler::deleteEmployee);
+                .route(POST(pathBase).and(accept(MediaType.APPLICATION_JSON)), handler::createEmployee)
+                .andRoute(GET(pathBase).and(accept(MediaType.APPLICATION_JSON)), handler::getEmployees)
+                .andRoute(GET(pathBase.concat(param)).and(accept(MediaType.APPLICATION_JSON)), handler::getEmployeeById)
+                .andRoute(PUT(pathBase.concat(param)).and(accept(MediaType.APPLICATION_JSON)), handler::updateEmployee)
+                .andRoute(DELETE(pathBase.concat(param)).and(accept(MediaType.APPLICATION_JSON)),
+                          handler::deleteEmployee);
     }
 
 }
