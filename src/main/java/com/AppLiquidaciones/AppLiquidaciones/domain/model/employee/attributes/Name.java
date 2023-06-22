@@ -6,8 +6,22 @@ import lombok.Builder;
 @Builder
 public class Name {
 
-    @Pattern(regexp = "[a-zA-Z\\s]{5,50}$+", message = "nombres solo se permiten letras y espacios")
     private String value;
+
+    public Name(String value) {
+        validateName(value);
+        this.value = value;
+    }
+    private void validateName(String value) {
+        if(value.equals("*,/,+,-"))
+            throw new IllegalArgumentException("El nombre no puede ser un caracter especial");
+        else if(value.equals(" "))
+            throw new IllegalArgumentException("El nombre no puede ser un espacio");
+        else if(value.length() < 3)
+            throw new IllegalArgumentException("El nombre no puede ser inferior 3 caracteres");
+        else if(value.length() > 50)
+            throw new IllegalArgumentException("El nombre no puede ser mayor a 50 caracteres");
+    }
 
     public String getValue() {
         return value;

@@ -1,5 +1,6 @@
 package com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.attributes;
 
+import com.AppLiquidaciones.AppLiquidaciones.domain.model.exceptions.ValidationException;
 import jakarta.validation.constraints.Pattern;
 import lombok.Builder;
 import org.springframework.validation.annotation.Validated;
@@ -17,15 +18,15 @@ public class Identification {
         return value;
     }
 
-    public void ValidateIdentification(Integer value) {
+    private void ValidateIdentification(Integer value) {
         if (value < 0) {
-            throw new IllegalArgumentException("Identification must be positive");
+            throw new ValidationException("Identification must be positive");
         } else if (value == null) {
-                    throw new IllegalArgumentException("Identification can not be null");
+                    throw new IllegalArgumentException("El número de cedúla no debe ser");
                 } else if (value < 0) {
                     throw new IllegalArgumentException("Identification can not be negative");
-                } else if (value < 1000000000) {
-                    throw new IllegalArgumentException("Identification can not be less than 10 digits");
+                } else if (value < 1000000) {
+                    throw new IllegalArgumentException("El número de cedúla no debe ser inferior a 7 digitos");
                 } else if (value > 9999999999L) {
                     throw new IllegalArgumentException("Identification can not be more than 10 digits");
                 } else if (value == 0) {

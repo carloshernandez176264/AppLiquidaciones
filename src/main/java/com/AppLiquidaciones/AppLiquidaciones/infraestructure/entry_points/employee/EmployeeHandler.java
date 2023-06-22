@@ -50,9 +50,9 @@ public class EmployeeHandler {
                 .flatMap(employee -> ServerResponse
                         .ok()
                         .bodyValue(EmployeeDTO.fromDomain(employee)))
-                .switchIfEmpty(ServerResponse
-                                       .notFound()
-                                       .build());
+                .onErrorResume(exception -> ServerResponse
+                        .status(HttpStatus.NOT_FOUND)
+                        .bodyValue("Error al obtener el empleado. Error:  " + exception.getMessage()));
     }
 
     public Mono<ServerResponse> updateEmployee(ServerRequest serverRequest) {

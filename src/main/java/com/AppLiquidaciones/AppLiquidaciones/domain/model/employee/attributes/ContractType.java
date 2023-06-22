@@ -7,6 +7,10 @@ public class ContractType {
 
     private String value;
 
+    public ContractType(String value) {
+        this.value = value;
+    }
+
     public String getValue() {
         return value;
     }

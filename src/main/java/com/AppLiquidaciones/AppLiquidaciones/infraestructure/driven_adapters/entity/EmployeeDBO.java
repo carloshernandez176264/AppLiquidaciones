@@ -47,7 +47,7 @@ public class EmployeeDBO {
 
     public static Employee toDomain(EmployeeDBO employeeDBO) {
         return new Employee(Name.builder().value(employeeDBO.name).build(), Identification.builder().value(employeeDBO.identification).build(),
-                Salary.builder().value(employeeDBO.identification).build(),ContractType.builder().value(employeeDBO.contractType).build() ,
+                Salary.builder().value(employeeDBO.salary).build(),ContractType.builder().value(employeeDBO.contractType).build() ,
                 ContractStartDate.builder().value(employeeDBO.contractStartDate).build(),
                 ContractEndDate.builder().value(employeeDBO.contractEndDate).build(), Area.builder().value(employeeDBO.area).build(), Role.builder().value(employeeDBO.role).build(),
                 Photo.builder().value(employeeDBO.photo).build() );
