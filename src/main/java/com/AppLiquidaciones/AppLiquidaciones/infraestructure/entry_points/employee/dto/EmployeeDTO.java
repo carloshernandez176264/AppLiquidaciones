@@ -5,7 +5,6 @@ import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.attributes.*;
 import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class EmployeeDTO {
 
@@ -14,7 +13,7 @@ public class EmployeeDTO {
     private String name;
     private Integer identification;
     private Integer salary;
-    private String contracttype;
+    private String contractType;
     private LocalDate contractStartDate;
     private LocalDate contractEndDate;
     private String area;
@@ -23,22 +22,22 @@ public class EmployeeDTO {
 
     public Employee toDomain(){
         return new Employee(Name.builder().value(name).build(),
-                Identification.builder().value(identification).build(), Salary.builder().value(salary).build(), ContractType.builder().value(contracttype).build(),
+                Identification.builder().value(identification).build(), Salary.builder().value(salary).build(), ContractType.builder().value(contractType).build(),
                 ContractStartDate.builder().value(contractStartDate).build(), ContractEndDate.builder().value(contractEndDate).build(),
                 Area.builder().value(area).build(), Role.builder().value(role).build(), Photo.builder().value(photo).build());
     }
 
     public static EmployeeDTO fromDomain(Employee employee) {
         return new EmployeeDTO(employee.getName().getValue(), employee.getIdentification().getValue(), employee.getSalary().getValue(),
-                employee.getContracttype().getValue(), employee.getContractStartDate().getValue(), employee.getContractEndDate().getValue(),
+                employee.getContractType().getValue(), employee.getContractStartDate().getValue(), employee.getContractEndDate().getValue(),
                 employee.getArea().getValue(), employee.getRole().getValue(), employee.getPhoto().getValue());
     }
 
-    public EmployeeDTO(String name, Integer identification, Integer salary, String contracttype, LocalDate contractStartDate, LocalDate contractEndDate, String area, String role, String photo) {
+    public EmployeeDTO(String name, Integer identification, Integer salary, String contractType, LocalDate contractStartDate, LocalDate contractEndDate, String area, String role, String photo) {
         this.name = name;
         this.identification = identification;
         this.salary = salary;
-        this.contracttype = contracttype;
+        this.contractType = contractType;
         this.contractStartDate = contractStartDate;
         this.contractEndDate = contractEndDate;
         this.area = area;
@@ -58,8 +57,8 @@ public class EmployeeDTO {
         return salary;
     }
 
-    public String getContracttype() {
-        return contracttype;
+    public String getContractType() {
+        return contractType;
     }
 
     public LocalDate getContractStartDate() {

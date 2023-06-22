@@ -18,7 +18,7 @@ public interface UserRepository {
 
     Mono<User> findByUsernameAndPassword(Username username, String password);
 
-    boolean login(String email, String password);
+    boolean login(String userName, String password);
 
     boolean logout();
 

@@ -39,11 +39,11 @@ public class IEmployeeDBORepositoryAdapter implements EmployeeRepository {
     public Mono<Employee> delete(Integer id) {
         return repository.findById(id)
                 .flatMap(employee -> repository.delete(employee)
-                        .then(Mono.just(employee.toDomain())));
+                        .then(Mono.just(employee.toDomain(employee))));
     }
 
     @Override
-    public Flux<Employee> findAll() {
+    public Flux findAll() {
         return repository.findAll().map(EmployeeDBO::toDomain);
     }
 }

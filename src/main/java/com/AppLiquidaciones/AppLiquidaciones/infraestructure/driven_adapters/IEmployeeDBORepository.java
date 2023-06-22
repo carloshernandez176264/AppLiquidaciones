@@ -5,6 +5,7 @@ import com.AppLiquidaciones.AppLiquidaciones.infraestructure.driven_adapters.ent
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import org.springframework.stereotype.Repository;
 
-
-public interface IEmployeeDBORepository extends ReactiveCrudRepository<EmployeeDBO, Integer > {
+@Repository
+public interface
+IEmployeeDBORepository extends ReactiveCrudRepository<EmployeeDBO, Integer > {
 }

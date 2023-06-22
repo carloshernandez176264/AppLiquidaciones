@@ -23,7 +23,7 @@ public class EmployeeDBO {
     private String name;
     private Integer identification;
     private Integer salary;
-    private String contracttype;
+    private String contractType;
     private LocalDate contractStartDate;
     private LocalDate contractEndDate;
     private String area;
@@ -36,7 +36,7 @@ public class EmployeeDBO {
                 .name(employee.getName().getValue())
                 .identification(employee.getIdentification().getValue())
                 .salary(employee.getSalary().getValue())
-                .contracttype(employee.getContracttype().getValue())
+                .contractType(employee.getContractType().getValue())
                 .contractStartDate(employee.getContractStartDate().getValue())
                 .contractEndDate(employee.getContractEndDate().getValue())
                 .area(employee.getArea().getValue())
@@ -45,11 +45,12 @@ public class EmployeeDBO {
                 .build();
     }
 
-    public Employee toDomain() {
-        return new Employee(Name.builder().value(name).build(), Identification.builder().value(identification).build(),
-                Salary.builder().value(salary).build(),ContractType.builder().value(contracttype).build() , ContractStartDate.builder().value(contractStartDate).build(),
-                ContractEndDate.builder().value(contractEndDate).build(), Area.builder().value(area).build(), Role.builder().value(role).build(),
-                Photo.builder().value(photo).build() );
+    public static Employee toDomain(EmployeeDBO employeeDBO) {
+        return new Employee(Name.builder().value(employeeDBO.name).build(), Identification.builder().value(employeeDBO.identification).build(),
+                Salary.builder().value(employeeDBO.identification).build(),ContractType.builder().value(employeeDBO.contractType).build() ,
+                ContractStartDate.builder().value(employeeDBO.contractStartDate).build(),
+                ContractEndDate.builder().value(employeeDBO.contractEndDate).build(), Area.builder().value(employeeDBO.area).build(), Role.builder().value(employeeDBO.role).build(),
+                Photo.builder().value(employeeDBO.photo).build() );
     }
 
     public String getName() {
@@ -64,8 +65,8 @@ public class EmployeeDBO {
         return salary;
     }
 
-    public String getContracttype() {
-        return contracttype;
+    public String getContractType() {
+        return contractType;
     }
 
     public LocalDate getContractStartDate() {

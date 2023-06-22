@@ -11,19 +11,19 @@ public class Employee {
     private Name name;
     private Identification identification;
     private Salary salary;
-    private ContractType contracttype;
+    private ContractType contractType;
     private ContractStartDate contractStartDate;
     private ContractEndDate contractEndDate;
     private Area area;
     private Role role;
     private Photo photo;
 
-    public Employee(Name name, Identification identification, Salary salary, ContractType contracttype,
-                    ContractStartDate contractStartDate, ContractEndDate contractEndDate,Area area, Role role, Photo photo) {
+    public Employee(Name name, Identification identification, Salary salary, ContractType contractType, ContractStartDate contractStartDate, ContractEndDate contractEndDate, Area area, Role role, Photo photo) {
+
         this.name = name;
         this.identification = identification;
         this.salary = salary;
-        this.contracttype = contracttype;
+        this.contractType = contractType;
         this.contractStartDate = contractStartDate;
         this.contractEndDate = contractEndDate;
         this.area = area;
@@ -43,8 +43,8 @@ public class Employee {
         return salary;
     }
 
-    public ContractType getContracttype() {
-        return contracttype;
+    public ContractType getContractType() {
+        return contractType;
     }
 
     public ContractStartDate getContractStartDate() {
@@ -58,9 +58,11 @@ public class Employee {
     public Area getArea() {
         return area;
     }
+
     public Role getRole() {
         return role;
     }
+
     public Photo getPhoto() {
         return photo;
     }
