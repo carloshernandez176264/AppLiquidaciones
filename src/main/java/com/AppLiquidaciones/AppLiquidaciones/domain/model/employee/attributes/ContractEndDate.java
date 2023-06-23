@@ -1,5 +1,6 @@
 package com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.attributes;
 
+import com.AppLiquidaciones.AppLiquidaciones.domain.model.exceptions.ValidationException;
 import lombok.Builder;
 
 import java.time.LocalDate;
@@ -17,11 +18,11 @@ public class ContractEndDate {
 
     private void validatedContractEndDate(LocalDate value) {
         if (value.isBefore(LocalDate.now().minusYears(1))) {
-            throw new IllegalArgumentException(" La fecha de finalización del contrato no puede ser inferior a un año atras");
+            throw new ValidationException(" La fecha de finalización del contrato no puede ser inferior a un año atras");
         } else if (value.isAfter(LocalDate.now().plusYears(1))) {
-            throw new IllegalArgumentException(" La fecha de finalización del contrato no puede ser superior a un año despues");
+            throw new ValidationException(" La fecha de finalización del contrato no puede ser superior a un año despues");
         } else if (value.isBefore(LocalDate.now())) {
-            throw new IllegalArgumentException(" La fecha de finalización del contrato no puede ser anterior a la fecha actual");
+            throw new ValidationException(" La fecha de finalización del contrato no puede ser anterior a la fecha actual");
         }
     }
 

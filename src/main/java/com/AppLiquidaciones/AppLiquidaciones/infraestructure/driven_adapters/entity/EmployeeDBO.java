@@ -22,7 +22,7 @@ public class EmployeeDBO {
     private Integer id;
     private String name;
     private Integer identification;
-    private Integer salary;
+    private Double salary;
     private String contractType;
     private LocalDate contractStartDate;
     private LocalDate contractEndDate;
@@ -61,7 +61,7 @@ public class EmployeeDBO {
         return identification;
     }
 
-    public Integer getSalary() {
+    public Double getSalary() {
         return salary;
     }
 

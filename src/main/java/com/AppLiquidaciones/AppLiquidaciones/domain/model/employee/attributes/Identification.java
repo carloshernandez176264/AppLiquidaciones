@@ -10,7 +10,6 @@ import org.springframework.validation.annotation.Validated;
 @Validated
 public class Identification {
 
-   @Pattern(regexp = "[0-9]+", message = "Identification only allows numbers")
     private Integer value;
 
 
@@ -22,19 +21,19 @@ public class Identification {
         if (value < 0) {
             throw new ValidationException("Identification must be positive");
         } else if (value == null) {
-                    throw new IllegalArgumentException("El número de cedúla no debe ser");
+                    throw new ValidationException("El número de cedúla no debe ser");
                 } else if (value < 0) {
-                    throw new IllegalArgumentException("Identification can not be negative");
+                    throw new ValidationException("Identification can not be negative");
                 } else if (value < 1000000) {
-                    throw new IllegalArgumentException("El número de cedúla no debe ser inferior a 7 digitos");
-                } else if (value > 9999999999L) {
-                    throw new IllegalArgumentException("Identification can not be more than 10 digits");
+                    throw new ValidationException("El número de cedúla no debe ser inferior a 7 digitos");
+                } else if (value > 999999999999999L) {
+                    throw new ValidationException("Identification can not be more than 10 digits");
                 } else if (value == 0) {
-                    throw new IllegalArgumentException("Identification can not be 0");
+                    throw new ValidationException("Identification can not be 0");
                 }else if (value.equals("*,/,+,-")) {
-                    throw new IllegalArgumentException("Identification can not be a character");
+                    throw new ValidationException("Identification can not be a character");
                 }else if (value.equals(" ")) {
-                    throw new IllegalArgumentException("Identification can not be a space");
+                    throw new ValidationException("Identification can not be a space");
                 }
         }
 

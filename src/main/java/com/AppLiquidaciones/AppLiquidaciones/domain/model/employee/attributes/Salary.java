@@ -1,30 +1,28 @@
 package com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.attributes;
 
+import com.AppLiquidaciones.AppLiquidaciones.domain.model.exceptions.ValidationException;
 import jakarta.validation.Valid;
 import lombok.Builder;
 
 
 @Builder
 public class Salary {
-   private Integer value;
+   private Double value;
 
-    public Salary(Integer value) {
+    public Salary(Double value) {
         validateSalary(value);
         this.value = value;
     }
 
-    public void validateSalary(Integer value){
+    private void validateSalary(Double value){
         if (value <= 1160000){
-            throw new IllegalArgumentException("El salario no debe ser inferior al salario minimo");
+            throw new ValidationException("El salario no debe ser inferior al salario minimo");
      } else if (value > 7000000) {
-            throw new IllegalArgumentException("El salario no debe ser superior a 7 millones");
-        }else if (value.equals("*,/,+,-")) {
-            throw new IllegalArgumentException("El salario no debe ser un character");
-        }else if (value.equals(" "))
-            throw new IllegalArgumentException("El salario no debe tener espacios en blanco");
+            throw new ValidationException("El salario no debe ser superior a 7 millones");
+        }
     }
 
-    public Integer getValue() {
+    public  Double getValue() {
         return value;
     }
 

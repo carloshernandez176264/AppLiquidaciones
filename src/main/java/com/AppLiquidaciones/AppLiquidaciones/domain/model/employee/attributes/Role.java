@@ -1,5 +1,6 @@
 package com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.attributes;
 
+import com.AppLiquidaciones.AppLiquidaciones.domain.model.exceptions.ValidationException;
 import lombok.Builder;
 
 @Builder
@@ -14,15 +15,11 @@ public class Role {
 
     private void validatedRole(String value) {
         if (value == null || value.isEmpty()) {
-            throw new IllegalArgumentException("El cargo no puede ser nulo o vacio");
+            throw new ValidationException("El cargo no puede ser nulo o vacio");
         } else if (value.length() < 10) {
-            throw new IllegalArgumentException("El cargo debe tener al menos 10 caracteres");
+            throw new ValidationException("El cargo debe tener al menos 10 caracteres");
         } else if (value.length() > 30) {
-            throw new IllegalArgumentException("El cargo debe tener maximo 20 caracteres");
-        } else if (value.equals("*,/,+,-")){
-            throw new IllegalArgumentException("El cargo no puede ser *,+,-,*");
-        } else if (value.equals(" ")){
-            throw new IllegalArgumentException("El cargo no puede ser un espacio");
+            throw new ValidationException("El cargo debe tener maximo 20 caracteres");
         }
     }
 

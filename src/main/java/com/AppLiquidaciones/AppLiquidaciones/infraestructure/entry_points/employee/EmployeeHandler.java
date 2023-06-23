@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
 
 @Component
 @AllArgsConstructor
-@CrossOrigin(origins = {"http://localhost:4200"}, allowedHeaders = "*", allowCredentials = "true")
+//@CrossOrigin(origins = {"http://localhost:4200"}, allowedHeaders = "*", allowCredentials = "true")
 public class EmployeeHandler {
 
     private final EmployeeUseCase employeeUseCase;

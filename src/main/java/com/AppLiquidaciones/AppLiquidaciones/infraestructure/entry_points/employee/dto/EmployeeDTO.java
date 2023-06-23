@@ -12,7 +12,7 @@ public class EmployeeDTO {
     private Integer id;
     private String name;
     private Integer identification;
-    private Integer salary;
+    private Double salary;
     private String contractType;
     private LocalDate contractStartDate;
     private LocalDate contractEndDate;
@@ -33,7 +33,7 @@ public class EmployeeDTO {
                 employee.getArea().getValue(), employee.getRole().getValue(), employee.getPhoto().getValue());
     }
 
-    public EmployeeDTO(String name, Integer identification, Integer salary, String contractType, LocalDate contractStartDate, LocalDate contractEndDate, String area, String role, String photo) {
+    public EmployeeDTO(String name, Integer identification, Double salary, String contractType, LocalDate contractStartDate, LocalDate contractEndDate, String area, String role, String photo) {
         this.name = name;
         this.identification = identification;
         this.salary = salary;
@@ -53,7 +53,7 @@ public class EmployeeDTO {
         return id;
     }
 
-    public Integer getSalary() {
+    public Double getSalary() {
         return salary;
     }
 

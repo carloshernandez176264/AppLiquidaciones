@@ -1,5 +1,6 @@
 package com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.attributes;
 
+import com.AppLiquidaciones.AppLiquidaciones.domain.model.exceptions.ValidationException;
 import jakarta.validation.constraints.Pattern;
 import lombok.Builder;
 
@@ -14,13 +15,13 @@ public class Name {
     }
     private void validateName(String value) {
         if(value.equals("*,/,+,-"))
-            throw new IllegalArgumentException("El nombre no puede ser un caracter especial");
+            throw new ValidationException("El nombre no puede ser un caracter especial");
         else if(value.equals(" "))
-            throw new IllegalArgumentException("El nombre no puede ser un espacio");
+            throw new ValidationException("El nombre no puede ser un espacio");
         else if(value.length() < 3)
-            throw new IllegalArgumentException("El nombre no puede ser inferior 3 caracteres");
+            throw new ValidationException("El nombre no puede ser inferior 3 caracteres");
         else if(value.length() > 50)
-            throw new IllegalArgumentException("El nombre no puede ser mayor a 50 caracteres");
+            throw new ValidationException("El nombre no puede ser mayor a 50 caracteres");
     }
 
     public String getValue() {
