@@ -1,8 +1,8 @@
-package com.AppLiquidaciones.AppLiquidaciones.domain.model.settlement.attributes;
+package com.AppLiquidaciones.AppLiquidaciones.domain.model.settlement.attributesReason;
 
 
-import com.AppLiquidaciones.AppLiquidaciones.domain.model.settlement.attributes.attributesReasonContractEnd.JustifyOrVoluntaryContractEnd;
-import com.AppLiquidaciones.AppLiquidaciones.domain.model.settlement.attributes.attributesReasonContractEnd.UnjustifiedContractEnd;
+import com.AppLiquidaciones.AppLiquidaciones.domain.model.settlement.attributesReason.attributesReasonContractEnd.JustifyOrVoluntaryContractEnd;
+import com.AppLiquidaciones.AppLiquidaciones.domain.model.settlement.attributesReason.attributesReasonContractEnd.UnjustifiedContractEnd;
 
 import lombok.Builder;
 

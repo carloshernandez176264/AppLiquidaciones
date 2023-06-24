@@ -1,4 +1,4 @@
-package com.AppLiquidaciones.AppLiquidaciones.domain.model.settlement.attributes.attributesReasonContractEnd;
+package com.AppLiquidaciones.AppLiquidaciones.domain.model.settlement.attributesReason.attributesReasonContractEnd;
 
 import lombok.Builder;
 

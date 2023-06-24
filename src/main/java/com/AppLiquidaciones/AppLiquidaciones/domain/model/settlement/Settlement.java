@@ -1,26 +1,41 @@
 package com.AppLiquidaciones.AppLiquidaciones.domain.model.settlement;
 
-import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.attributes.Identification;
-import com.AppLiquidaciones.AppLiquidaciones.domain.model.settlement.attributes.ReasonContractEnd;
+import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.Employee;
+import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.attributes.ContractEndDate;
+import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.attributes.ContractStartDate;
+import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.attributes.Salary;
+import com.AppLiquidaciones.AppLiquidaciones.domain.model.settlement.attributes.AssistanceTransportation;
+import com.AppLiquidaciones.AppLiquidaciones.domain.model.settlement.attributes.DaysWorked;
+import com.AppLiquidaciones.AppLiquidaciones.domain.model.settlement.attributes.DaysWorkedCurrentYear;
+import com.AppLiquidaciones.AppLiquidaciones.domain.model.settlement.attributesReason.ReasonSettlement;
 import lombok.Builder;
 
 @Builder
 public class Settlement {
 
-    private final Identification identification;
+    private final Employee employee;
 
-    private final ReasonContractEnd reasonContractEnd;
+    private final ReasonSettlement reasonSettlement;
 
-    public Settlement(Identification identification, ReasonContractEnd reasonContractEnd) {
-        this.identification = identification;
-        this.reasonContractEnd = reasonContractEnd;
-    }
+    private final Salary currentSalary;
 
-    public Identification getIdentification() {
-        return identification;
-    }
+    private final ContractStartDate contractStartDate;
 
-    public ReasonContractEnd getReasonContractEnd() {
-        return reasonContractEnd;
-    }
+    private final ContractEndDate contractEndDate;
+
+    private final AssistanceTransportation assistanceTransportation;
+
+    private final DaysWorked daysWorked;
+
+    private final DaysWorkedCurrentYear daysWorkedCurrentYear;
+
+    private final DaysVacations
+
+
+
+
+
+
+
+
 }
