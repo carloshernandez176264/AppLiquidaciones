@@ -1,10 +1,10 @@
 package com.AppLiquidaciones.AppLiquidaciones.domain.model.settlement.attributes;
 
-public class DaysWorkedCurrentYear {
+public class DayswokedLastSixMonths {
 
     private final Integer value;
 
-    public DaysWorkedCurrentYear(Integer value) {
+    public DayswokedLastSixMonths(Integer value) {
         this.value = value;
     }
 

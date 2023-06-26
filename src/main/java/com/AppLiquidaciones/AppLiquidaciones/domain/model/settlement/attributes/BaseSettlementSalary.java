@@ -1,10 +1,10 @@
 package com.AppLiquidaciones.AppLiquidaciones.domain.model.settlement.attributes;
 
-public class AssistanceTransportation {
+public class BaseSettlementSalary {
 
     private Double value;
 
-    public AssistanceTransportation(Double value) {
+    public BaseSettlementSalary(Double value) {
         this.value = value;
     }
 

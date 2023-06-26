@@ -2,7 +2,9 @@ package com.AppLiquidaciones.AppLiquidaciones.domain.model.employee;
 
 
 import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.attributes.*;
+import lombok.Builder;
 import org.springframework.data.annotation.Id;
+
 
 public class Employee {
 

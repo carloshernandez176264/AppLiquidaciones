@@ -7,11 +7,14 @@ import org.springframework.validation.annotation.Validated;
 
 
 @Builder
-@Validated
+
 public class Identification {
 
-    private Integer value;
+    private final Integer value;
 
+    public Identification(Integer value) {
+        this.value = value;
+    }
 
     public Integer getValue() {
         return value;
@@ -36,12 +39,4 @@ public class Identification {
                     throw new ValidationException("Identification can not be a space");
                 }
         }
-
-
-    @Override
-    public String toString() {
-        return "Identification{" +
-                "value=" + value +
-                '}';
-    }
 }
