@@ -2,9 +2,11 @@ package com.AppLiquidaciones.AppLiquidaciones.infraestructure.entry_points.emplo
 
 import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.*;
 import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.attributes.*;
+import lombok.Getter;
 import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
+
 
 public class EmployeeDTO {
 
@@ -20,8 +22,8 @@ public class EmployeeDTO {
     private String role;
     private String photo;
 
-    public Employee toDomain(){
-        return new Employee(Name.builder().value(name).build(),
+    public Employee toDomain() {
+        return new Employee(ID.builder().value(id).build(), Name.builder().value(name).build(),
                 Identification.builder().value(identification).build(), Salary.builder().value(salary).build(), ContractType.builder().value(contractType).build(),
                 ContractStartDate.builder().value(contractStartDate).build(), ContractEndDate.builder().value(contractEndDate).build(),
                 Area.builder().value(area).build(), Role.builder().value(role).build(), Photo.builder().value(photo).build());
@@ -45,12 +47,12 @@ public class EmployeeDTO {
         this.photo = photo;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public Integer getId() {
         return id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public Double getSalary() {

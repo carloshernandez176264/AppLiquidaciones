@@ -21,6 +21,10 @@ public class ReasonContractEnd {
         this.unjustifiedContractEnd = unjustifiedContractEnd;
     }
 
+    public ReasonContractEnd(String unjustifiedContractEnd) {
+        this.value = unjustifiedContractEnd;
+    }
+
     public String getValue() {
         return value;
     }

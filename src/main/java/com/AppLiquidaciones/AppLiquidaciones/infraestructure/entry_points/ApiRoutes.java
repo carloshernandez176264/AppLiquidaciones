@@ -16,6 +16,7 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 import static org.springframework.web.reactive.function.server.RequestPredicates.*;
 
 @Configuration
+@CrossOrigin(origins = "*")
 public class ApiRoutes {
 
     @Value("${PATH_BASE}")

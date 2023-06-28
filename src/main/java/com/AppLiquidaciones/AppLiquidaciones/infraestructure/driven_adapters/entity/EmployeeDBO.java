@@ -5,6 +5,7 @@ import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.*;
 import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.attributes.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
@@ -14,6 +15,7 @@ import java.time.LocalDate;
 
 @Table(name = "employees")
 @Builder
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class EmployeeDBO {
@@ -46,11 +48,15 @@ public class EmployeeDBO {
     }
 
     public static Employee toDomain(EmployeeDBO employeeDBO) {
-        return new Employee(Name.builder().value(employeeDBO.name).build(), Identification.builder().value(employeeDBO.identification).build(),
+        return new Employee(ID.builder().value(employeeDBO.id).build(), Name.builder().value(employeeDBO.name).build(), Identification.builder().value(employeeDBO.identification).build(),
                 Salary.builder().value(employeeDBO.salary).build(),ContractType.builder().value(employeeDBO.contractType).build() ,
                 ContractStartDate.builder().value(employeeDBO.contractStartDate).build(),
                 ContractEndDate.builder().value(employeeDBO.contractEndDate).build(), Area.builder().value(employeeDBO.area).build(), Role.builder().value(employeeDBO.role).build(),
                 Photo.builder().value(employeeDBO.photo).build() );
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public String getName() {

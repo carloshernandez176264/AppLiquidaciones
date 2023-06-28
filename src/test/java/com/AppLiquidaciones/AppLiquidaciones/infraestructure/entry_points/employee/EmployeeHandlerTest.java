@@ -2,7 +2,7 @@ package com.AppLiquidaciones.AppLiquidaciones.infraestructure.entry_points.emplo
 
 import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.Employee;
 import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.attributes.*;
-import com.AppLiquidaciones.AppLiquidaciones.domain.model.gateways.EmployeeRepository;
+import com.AppLiquidaciones.AppLiquidaciones.infraestructure.driven_adapters.IEmployeeDBORepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,9 +16,7 @@ import reactor.core.publisher.Mono;
 
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.when;
 
 
 @ExtendWith(SpringExtension.class)
@@ -26,7 +24,7 @@ import static org.mockito.Mockito.when;
 class EmployeeHandlerTest {
 
     @MockBean
-    private EmployeeRepository employeeRepository;
+    private IEmployeeDBORepository employeeDBORepository;
 
     @Autowired
     private WebTestClient webTestClient;
@@ -35,19 +33,19 @@ class EmployeeHandlerTest {
 //    @DisplayName("Create employee success")
 //    void createEmployee() {
 //        //Arrange
-//        Employee employee = Employee.builder()
-//                .id(1)
-//                .name(new Name("Johan"))
-//                .identification(new Identification(12345678))
-//                .salary(new Salary(1500000.0))
-//                .contractType(new ContractType("software developer"))
-//                .contractStartDate(new ContractStartDate(LocalDate.of(2015,2,2)))
-//                .contractEndDate(new ContractEndDate(LocalDate.of(2015,2,2)))
-//                .area(new Area("software developer"))
-//                .role(new Role("software developer"))
-//                .photo(new Photo("photo"))
-//                .build();
-//        given(employeeRepository.save(employee)).willReturn(Mono.just(employee));
+//        Employee employee = new Employee(
+//                new ID(1),
+//                new Name("prueba"),
+//                new Identification(32589621),
+//                new Salary(1800000D),
+//                new ContractType("prueba"),
+//                new ContractStartDate(LocalDate.of(2015, 01, 01)),
+//                new ContractEndDate(LocalDate.of(2015, 01, 16)),
+//                new Area("prueba"),
+//                new Role("prueba"),
+//                new Photo("prueba"));
+//
+//        given(employeeDBORepository.save(employeeDBO)).willReturn(Mono.just(employee));
 //
 //        //Act & Asseert
 //webTestClient.post()
