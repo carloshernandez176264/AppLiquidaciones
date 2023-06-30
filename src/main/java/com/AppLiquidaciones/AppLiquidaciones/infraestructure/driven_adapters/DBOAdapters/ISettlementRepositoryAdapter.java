@@ -1,9 +1,10 @@
-package com.AppLiquidaciones.AppLiquidaciones.infraestructure.driven_adapters;
+package com.AppLiquidaciones.AppLiquidaciones.infraestructure.driven_adapters.DBOAdapters;
 
 import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.Employee;
 import com.AppLiquidaciones.AppLiquidaciones.domain.model.gateways.SettlementRepository;
 import com.AppLiquidaciones.AppLiquidaciones.domain.model.settlement.Settlement;
 import com.AppLiquidaciones.AppLiquidaciones.domain.model.settlement.attributes.AssistanceTransportation;
+import com.AppLiquidaciones.AppLiquidaciones.infraestructure.driven_adapters.DBORepositorys.ISettlementRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Mono;

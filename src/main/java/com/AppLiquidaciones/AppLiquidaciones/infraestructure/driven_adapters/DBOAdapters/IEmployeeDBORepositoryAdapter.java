@@ -1,7 +1,8 @@
-package com.AppLiquidaciones.AppLiquidaciones.infraestructure.driven_adapters;
+package com.AppLiquidaciones.AppLiquidaciones.infraestructure.driven_adapters.DBOAdapters;
 
 import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.Employee;
 import com.AppLiquidaciones.AppLiquidaciones.domain.model.gateways.EmployeeRepository;
+import com.AppLiquidaciones.AppLiquidaciones.infraestructure.driven_adapters.DBORepositorys.IEmployeeDBORepository;
 import com.AppLiquidaciones.AppLiquidaciones.infraestructure.driven_adapters.entity.EmployeeDBO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;

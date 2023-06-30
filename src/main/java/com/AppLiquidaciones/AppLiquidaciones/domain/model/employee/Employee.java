@@ -2,15 +2,15 @@ package com.AppLiquidaciones.AppLiquidaciones.domain.model.employee;
 
 
 import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.attributes.*;
-import com.AppLiquidaciones.AppLiquidaciones.domain.model.settlement.attributes.AssistanceTransportation;
-import lombok.Builder;
 import lombok.Getter;
-import org.springframework.data.annotation.Id;
+import lombok.NoArgsConstructor;
+
 
 @Getter
+@NoArgsConstructor
 public class Employee {
 
-    @Id
+
     private ID id;
     private Name name;
     private Identification identification;
@@ -24,6 +24,18 @@ public class Employee {
 
     public Employee(ID id, Name name, Identification identification, Salary salary, ContractType contractType, ContractStartDate contractStartDate, ContractEndDate contractEndDate, Area area, Role role, Photo photo) {
         this.id = id;
+        this.name = name;
+        this.identification = identification;
+        this.salary = salary;
+        this.contractType = contractType;
+        this.contractStartDate = contractStartDate;
+        this.contractEndDate = contractEndDate;
+        this.area = area;
+        this.role = role;
+        this.photo = photo;
+    }
+
+    public Employee(Name name, Identification identification, Salary salary, ContractType contractType, ContractStartDate contractStartDate, ContractEndDate contractEndDate, Area area, Role role, Photo photo) {
         this.name = name;
         this.identification = identification;
         this.salary = salary;
@@ -76,5 +88,32 @@ public class Employee {
     }
 
 
+    private void validateEmployee(Employee employee){
+        if(employee == null){
+            throw new IllegalArgumentException("please provide a valid employee");
+        }
+        if (getId() == null) {
+            throw new IllegalArgumentException("please provide a valid id");
+        }
+        if(getId().equals(employee.getId())){
+            throw new IllegalArgumentException("the employee if exists");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name=" + name +
+                ", identification=" + identification +
+                ", salary=" + salary +
+                ", contractType=" + contractType +
+                ", contractStartDate=" + contractStartDate +
+                ", contractEndDate=" + contractEndDate +
+                ", area=" + area +
+                ", role=" + role +
+                ", photo=" + photo +
+                '}';
+    }
 }
 

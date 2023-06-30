@@ -1,8 +1,9 @@
-package com.AppLiquidaciones.AppLiquidaciones.infraestructure.driven_adapters;
+package com.AppLiquidaciones.AppLiquidaciones.infraestructure.driven_adapters.DBOAdapters;
 
 import com.AppLiquidaciones.AppLiquidaciones.domain.model.gateways.UserRepository;
 import com.AppLiquidaciones.AppLiquidaciones.domain.model.user.User;
 import com.AppLiquidaciones.AppLiquidaciones.domain.model.user.attributes.Username;
+import com.AppLiquidaciones.AppLiquidaciones.infraestructure.driven_adapters.DBORepositorys.IUserDBORepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Mono;

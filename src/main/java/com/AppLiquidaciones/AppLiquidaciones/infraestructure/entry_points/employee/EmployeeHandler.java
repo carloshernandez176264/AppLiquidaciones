@@ -27,7 +27,7 @@ public class EmployeeHandler {
                                 .bodyValue(savedEmployee)))
                 .onErrorResume(exception -> ServerResponse
                         .badRequest()
-                        .bodyValue("Error al crear el empleado. Error:  " + exception.getMessage()));
+                        .bodyValue("Error al crear el empleado. Error:  " + exception.getCause()));
     }
 
     public Mono<ServerResponse> getEmployees(ServerRequest serverRequest) {
@@ -49,8 +49,9 @@ public class EmployeeHandler {
 
     public Mono<ServerResponse> getEmployeeById(ServerRequest serverRequest) {
         System.out.println("Entrando a getEmployeeById");
+        int id = Integer.parseInt(serverRequest.pathVariable("id"));
         return employeeUseCase
-                .getEmployeeById(Integer.valueOf((serverRequest.pathVariable("id"))))
+                .getEmployeeById(id)
                 .flatMap(employee -> ServerResponse
                         .ok()
                         .bodyValue(EmployeeDTO.fromDomain(employee)))
@@ -64,9 +65,9 @@ public class EmployeeHandler {
                 .bodyToMono(EmployeeDTO.class)
                 .flatMap(employeeDTO -> employeeUseCase
                         .updateEmployee(employeeDTO)
-                        .flatMap(savedEmployee -> ServerResponse
+                        .flatMap(updateEmployee -> ServerResponse
                                 .status(HttpStatus.CREATED)
-                                .bodyValue(EmployeeDTO.fromDomain(savedEmployee))))
+                                .bodyValue(EmployeeDTO.fromDomain(updateEmployee))))
                 .onErrorResume(exception -> ServerResponse
                         .badRequest()
                         .bodyValue(exception.getMessage()));
@@ -74,7 +75,7 @@ public class EmployeeHandler {
 
 
     public Mono<ServerResponse> deleteEmployee(ServerRequest serverRequest) {
-        Integer id = Integer.valueOf(serverRequest.pathVariable("id"));
+        int id = Integer.parseInt(serverRequest.pathVariable("id"));
         return employeeUseCase
                 .deleteEmployee(id)
                 .flatMap(employee -> ServerResponse

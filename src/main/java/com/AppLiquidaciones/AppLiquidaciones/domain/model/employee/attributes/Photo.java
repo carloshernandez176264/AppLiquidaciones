@@ -15,4 +15,10 @@ public class Photo {
         return value;
     }
 
+    @Override
+    public String toString() {
+        return "Photo{" +
+                "value='" + value + '\'' +
+                '}';
+    }
 }

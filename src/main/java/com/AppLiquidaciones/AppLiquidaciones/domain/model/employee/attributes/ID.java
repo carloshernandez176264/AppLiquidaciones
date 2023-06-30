@@ -14,4 +14,11 @@ public class ID {
     public Integer getValue() {
         return value;
     }
+
+    @Override
+    public String toString() {
+        return "ID{" +
+                "value=" + value +
+                '}';
+    }
 }

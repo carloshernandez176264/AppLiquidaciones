@@ -1,4 +1,4 @@
-package com.AppLiquidaciones.AppLiquidaciones.infraestructure.driven_adapters;
+package com.AppLiquidaciones.AppLiquidaciones.infraestructure.driven_adapters.DBORepositorys;
 
 import com.AppLiquidaciones.AppLiquidaciones.infraestructure.driven_adapters.entity.SettlementDBO;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;

@@ -39,4 +39,11 @@ public class Identification {
                     throw new ValidationException("Identification can not be a space");
                 }
         }
+
+    @Override
+    public String toString() {
+        return "Identification{" +
+                "value=" + value +
+                '}';
+    }
 }

@@ -1,4 +1,4 @@
-package com.AppLiquidaciones.AppLiquidaciones.infraestructure.driven_adapters;
+package com.AppLiquidaciones.AppLiquidaciones.infraestructure.driven_adapters.DBORepositorys;
 
 import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.Employee;
 import com.AppLiquidaciones.AppLiquidaciones.infraestructure.driven_adapters.entity.EmployeeDBO;

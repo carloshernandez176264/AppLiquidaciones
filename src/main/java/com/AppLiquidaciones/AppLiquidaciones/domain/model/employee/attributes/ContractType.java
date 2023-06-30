@@ -1,8 +1,8 @@
 package com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.attributes;
 
 import lombok.Builder;
-
 @Builder
+
 public class ContractType {
 
     private String value;

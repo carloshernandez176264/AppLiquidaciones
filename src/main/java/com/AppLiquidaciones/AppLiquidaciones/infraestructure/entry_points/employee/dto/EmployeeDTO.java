@@ -2,12 +2,16 @@ package com.AppLiquidaciones.AppLiquidaciones.infraestructure.entry_points.emplo
 
 import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.*;
 import com.AppLiquidaciones.AppLiquidaciones.domain.model.employee.attributes.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
 
-
+@Builder
+@NoArgsConstructor
 public class EmployeeDTO {
 
     @Id
@@ -30,9 +34,22 @@ public class EmployeeDTO {
     }
 
     public static EmployeeDTO fromDomain(Employee employee) {
-        return new EmployeeDTO(employee.getName().getValue(), employee.getIdentification().getValue(), employee.getSalary().getValue(),
+        return new EmployeeDTO(employee.getId().getValue() ,employee.getName().getValue(), employee.getIdentification().getValue(), employee.getSalary().getValue(),
                 employee.getContractType().getValue(), employee.getContractStartDate().getValue(), employee.getContractEndDate().getValue(),
                 employee.getArea().getValue(), employee.getRole().getValue(), employee.getPhoto().getValue());
+    }
+
+    public EmployeeDTO(Integer id, String name, Integer identification, Double salary, String contractType, LocalDate contractStartDate, LocalDate contractEndDate, String area, String role, String photo) {
+        this.id = id;
+        this.name = name;
+        this.identification = identification;
+        this.salary = salary;
+        this.contractType = contractType;
+        this.contractStartDate = contractStartDate;
+        this.contractEndDate = contractEndDate;
+        this.area = area;
+        this.role = role;
+        this.photo = photo;
     }
 
     public EmployeeDTO(String name, Integer identification, Double salary, String contractType, LocalDate contractStartDate, LocalDate contractEndDate, String area, String role, String photo) {
@@ -46,6 +63,8 @@ public class EmployeeDTO {
         this.role = role;
         this.photo = photo;
     }
+
+
 
     public Integer getId() {
         return id;
@@ -85,5 +104,21 @@ public class EmployeeDTO {
 
     public String getPhoto() {
         return photo;
+    }
+
+    @Override
+    public String toString() {
+        return "EmployeeDTO{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", identification=" + identification +
+                ", salary=" + salary +
+                ", contractType='" + contractType + '\'' +
+                ", contractStartDate=" + contractStartDate +
+                ", contractEndDate=" + contractEndDate +
+                ", area='" + area + '\'' +
+                ", role='" + role + '\'' +
+                ", photo='" + photo + '\'' +
+                '}';
     }
 }
