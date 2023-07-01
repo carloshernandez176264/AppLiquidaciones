@@ -1,0 +1,21 @@
+CREATE TABLE EMPLOYEES
+(
+    ID SERIAL PRIMARY KEY,
+    NAME VARCHAR(30) NOT NULL,
+    IDENTIFICATION INTEGER NOT NULL,
+    SALARY INTEGER NOT NULL,
+    CONTRACT_TYPE VARCHAR(60) NOT NULL,
+    CONTRACT_START_DATE DATE NOT NULL,
+    CONTRACT_END_DATE DATE NULL,
+    AREA VARCHAR(60) NOT NULL,
+    ROLE VARCHAR(100) NOT NULL,
+    PHOTO VARCHAR(100)  NULL
+	);
+	
+INSERT INTO public.employees (name,identification,salary,contract_type,contract_start_date,contract_end_date,area,"role",photo) VALUES
+	 ('Oscar arango',98654321,7000000,'Indefinido','2023-10-04',NULL,'Arquitectura','Aprendiz de desarrollo',''),
+	 ('carlos hernandez',70879140,1800000,'indefinido','2015-05-03',NULL,'arquitectura','aprendiz de desarrollo',NULL),
+	 ('janeth bermudez',1024589725,2800000,'indefinido','2015-02-04',NULL,'desarrollo','aprendiz de desarrollo',NULL),
+	 ('carlos hoyos',98356412,3000000,'fijo','2015-03-02',NULL,'arquitectura','aprendiz de desarrollo',NULL),
+	 ('daniel montoya',32568924,1800000,'Indefinido','2015-02-04',NULL,'I+D+I','aprendiz de desarrollo',NULL),
+	 ('katerine alarcon',1214568729,3000000,'fijo','2015-01-06',NULL,'recursos humanos','auxiliar administrativo',NULL);
