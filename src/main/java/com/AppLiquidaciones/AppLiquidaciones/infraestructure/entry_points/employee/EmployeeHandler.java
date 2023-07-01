@@ -61,6 +61,7 @@ public class EmployeeHandler {
     }
 
     public Mono<ServerResponse> updateEmployee(ServerRequest serverRequest) {
+        int id = Integer.parseInt(serverRequest.pathVariable("id"));
         return serverRequest
                 .bodyToMono(EmployeeDTO.class)
                 .flatMap(employeeDTO -> employeeUseCase

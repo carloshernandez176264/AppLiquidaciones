@@ -37,8 +37,11 @@ public class Identification {
                     throw new ValidationException("Identification can not be a character");
                 }else if (value.equals(" ")) {
                     throw new ValidationException("Identification can not be a space");
-                }
+                } else if (value.equals(value)) {
+                    throw new ValidationException("Identification can not be the same");
         }
+
+    }
 
     @Override
     public String toString() {
